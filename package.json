@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "co": "^4.4.0",
+    "co-monk": "^1.0.0",
     "debug": "^2.1.3",
     "ini": "^1.3.3",
+    "monk": "^1.0.1",
     "throng": "^1.0.0",
     "thunkify-wrap": "^1.0.4",
     "twitter": "^1.2.5"
