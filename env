@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var debug = require('debug')('set');
+var fs = require('fs');
+
+/**
+ * Const keys we are looking to set.
+ */
+
+const keys = [
+  'TW_CONSUMER_KEY',
+  'TW_CONSUMER_SEC',
+  'TW_ACCESS_TOKEN_KEY',
+  'TW_ACCESS_TOKEN_SEC',
+  'WEB_CONCURRENCY',
+  'KEYWORDS'
+];
+
+/**
+ * Run.
+ */
+
+run();
+
+/**
+ * Define `run`.
+ */
+
+function run() {
+  fs.writeFileSync('config.ini', '');
+  env();
+  config();
+}
+
+/**
+ * Set process.env from .env
+ */
+
+function env() {
+  var e;
+  try {
+    e = fs.readFileSync('.env', { encoding: 'utf-8' }).split('\n');
+  } catch (b) {
+    return;
+  }
+  for (var i = 0; i < e.length; i++) {
+    process.env[e[i].split('=')[0].trim()] = e[i].split('=')[1].trim();
+  }
+}
+
+/**
+ * Set keys from `process.env`.
+ */
+
+function config() {
+  for (var i = 0; i < keys.length; i++) {
+    var line = keys[i] + ' = ' + process.env[keys[i]] + '\n';
+    debug('added %s to config.ini', line);
+    fs.appendFileSync('config.ini', line);
+  }
+}
