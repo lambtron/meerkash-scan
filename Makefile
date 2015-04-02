@@ -21,6 +21,10 @@ debug: node_modules
 run: node_modules
 	@node --harmony lib/bot
 
+# Set env vars.
+set:
+	@node --harmony ./env
+
 #
 # Targets.
 #
