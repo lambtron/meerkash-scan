@@ -25,6 +25,9 @@ run: node_modules
 set:
 	@node --harmony ./env
 
+queue: node_modules
+	@DEBUG=* node --harmony lib/queue
+
 #
 # Targets.
 #
