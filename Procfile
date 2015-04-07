@@ -1,1 +1,2 @@
-worker: make debug
+test: make debug
+test2: make queue
