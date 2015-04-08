@@ -13,19 +13,16 @@ default: run
 clean:
 	@rm -rf node_modules
 
-# Run the bot in debug mode.
-debug: node_modules
-	@DEBUG=* node --harmony lib/bot
-
 # Run the bot.
 run: node_modules
-	@node --harmony lib/bot
+	@DEBUG=* node --harmony lib/bot
 
 # Set env vars.
 set:
 	@node --harmony ./env
 
-queue: node_modules
+# Run the queue processor.
+process: node_modules
 	@DEBUG=* node --harmony lib/queue
 
 #
@@ -41,5 +38,3 @@ node_modules: package.json
 #
 
 .PHONY: clean
-.PHONY: debug
-.PHONY: run
