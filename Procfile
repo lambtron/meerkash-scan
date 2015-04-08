@@ -1,2 +1,2 @@
-test: make debug
-test2: make queue
+scan: make scan
+process: make process
