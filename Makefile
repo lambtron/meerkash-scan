@@ -3,7 +3,7 @@
 # Default.
 #
 
-default: run
+default: scan
 
 #
 # Tasks.
@@ -14,7 +14,7 @@ clean:
 	@rm -rf node_modules
 
 # Run the bot.
-run: node_modules
+scan: node_modules
 	@DEBUG=* node --harmony lib/bot
 
 # Set env vars.
