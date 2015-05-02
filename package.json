@@ -16,6 +16,7 @@
     "url": "https://github.com/segmentio/meerkash-scan/issues"
   },
   "dependencies": {
+    "analytics-node": "^1.2.2",
     "co": "^4.5.1",
     "co-monk": "^1.0.0",
     "debug": "^2.1.3",
